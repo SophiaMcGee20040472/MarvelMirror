@@ -165,7 +165,7 @@ def v0_write_handler(value):
         sense.set_pixel(1,5,0, 0, 255)
         sense.set_pixel(7,5,0, 0, 255)
         sense.set_pixel(0,3,0, 0, 255)
-        sense.set_pixel(0,4,0, 0, 255)
+        sense.set_pixel(0,4,0, 0 , 255)
      
     else:
         sense.clear()
