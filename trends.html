@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MarvelMirror</title>
+    <!-- import the webpage's stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <script src="script.js"></script>
+     <link rel="stylesheet" href="./css/styles.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+   
+  </head>
+
+  <body>
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        
+          <a href="index.html" class="item">Gallery </a>
+        <a href="dashboard.html" class="item">Dashboard <br></a>
+        <a href="about.html" class="item">About </a>
+        <a href="#" class="item">Trends </a>
+      </div>
+    </div>
+    <div class="ui grid-center">
+      <div class="two wide column">
+ 
+    <div class="ui main text container">
+        <h1>
+     Marvel Mirror Environment Readings
+        </h1>
+	 <iframe
+      width="450"
+      height="260"
+      style="border: 1px solid #cccccc"
+      src="https://thingspeak.com/channels/1567696/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+    ></iframe>
+    <iframe
+      width="450"
+      height="260"
+      style="border: 1px solid #cccccc"
+      src="https://thingspeak.com/channels/1567696/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+    ></iframe>
+    <iframe
+      width="450"
+      height="260"
+      style="border: 1px solid #cccccc"
+      src="https://thingspeak.com/channels/1567696/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+    ></iframe>
+      <div class="footer">
+  <p></p>
+  <br>
+</div>
+    </div>
+ 
+    <div id="gallery_div"></div>
+  </div>  
+  </body>
+
+</html>

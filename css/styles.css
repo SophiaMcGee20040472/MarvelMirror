@@ -1,0 +1,43 @@
+body {
+  background-color: #cc0066;
+}
+
+.main.container {
+  margin-top: 7em;
+  width: 100%;
+}
+
+.grid-center {
+  text-align: center;
+}
+
+a {
+  color: orange ;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: left;
+}
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgrey;
+  text-align: left;
+}
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+}
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 5P%;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+  
+
