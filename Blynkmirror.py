@@ -16,8 +16,14 @@ from picamera import PiCamera
 import os
 from twilio.rest import Client
 from dotenv import dotenv_values
-import os
 from dotenv import load_dotenv
+import cups
+from escpos.connections import getNetworkPrinter
+import BlynkLib
+from datetime import datetime
+import os, time
+import subprocess
+from PIL import Image
 
 
 BLYNK_AUTH = 'j0CzYYYPriSRoxmRclMd0FX5Ge76woqy'
@@ -91,6 +97,27 @@ def v3_write_handler(value):
              camera.close()
              api.update_status(status=tweet, media_ids=[media.media_id])
 
+
+# This button is the photobooth button this sends a captured photo to a printer to be printed out over a wifi connection.
+blynk = BlynkLib.Blynk(BLYNK_AUTH)
+@blynk.on("V11")
+def v11_write_handler(value):
+    buttonValue=value[0]
+    print(f'Current button value: {buttonValue}')
+    FILE_PATH = "/home/pi/img_%s.%s"
+    print("Button pressed!")
+    datetime_string = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    filename = FILE_PATH % (datetime_string, "jpg")
+    os.system("raspistill -o %s" % filename)
+    
+    # convert
+    image1 = Image.open(filename)
+    im1 = image1.convert('RGB')
+    jpg_filename = FILE_PATH % (datetime_string, "jpg")
+    im1.save(jpg_filename)
+ 
+    #sends to my HP printer and prints captured image.
+    subprocess.run(["lp", "-d", "HP_ENVY_6000_series",jpg_filename ])
 
 # register handler for virtual pin V0 Love Heart [Lights Button]
 @blynk.on("V0")
@@ -190,6 +217,8 @@ def v6_write_handler(value):
         storeFileFB.push_db(fileLoc, currentTime)
         frame += 1
     camera.close()   
+
+    
    
  # register handler for virtual pin V5 [Email Button] sends email with image attached with camera annotation.
 @blynk.on("V5")
@@ -204,6 +233,7 @@ def v5_write_handler(value):
           camera.annotate_text = 'YOU HAVE BEEN SNAPPED!'
           camera.capture("/home/pi/MarvelMirror/images/image1.jpeg")
           print("Picture taken")
+          # so camera can close and other buttons function
           camera.close()
     now = datetime.now()
     currentTimes = now.strftime("%H:%M:%S")
@@ -221,10 +251,10 @@ def v4_write_handler(value):
     print(f'Current button value: {buttonValue}')
     if buttonValue=="1":
         
-        if temp >=25:
+        if temp >=23:
             sense.show_message("Temp is %.1f C" % temp, scroll_speed=0.10, text_colour=[0, 0, 255])
         else:
-            sense.show_message("Too Cold to Register Reading", text_colour = [0, 0, 255])
+            sense.show_message("Too Cold to Register Reading It s Below 23 C", text_colour = [255, 0, 255])
             print(temp)
 
 # register handler for virtual pin V2 [Quote Button] 
@@ -241,11 +271,11 @@ def v2_write_handler(value):
      print(f'Current button value: {buttonValue}')
      if buttonValue=="1":
         #list of if statements depending on temp,humidity and pressure in the room this is the quote button.
-         if temp >=25:
+         if temp >=20:
              sense.show_message("Love the Outfit" , scroll_speed=0.05, text_colour=[0, 0, 255])
-         if humidity >=25:
+         if humidity >=20:
              sense.show_message("Your looking like a Babe", scroll_speed=0.05, text_colour=[0, 0, 255])
-         if pressure >=25:
+         if pressure >=20:
              sense.show_message("You are a 20 out of 10", scroll_speed=0.10, text_colour=[0, 0, 255])
          else:
             sense.show_message("Did you get dressed in the Dark", text_colour = [0, 0, 255])
