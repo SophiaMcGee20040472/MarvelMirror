@@ -98,6 +98,7 @@ def v3_write_handler(value):
              api.update_status(status=tweet, media_ids=[media.media_id])
 
 
+
 # This button is the photobooth button this sends a captured photo to a printer to be printed out over a wifi connection.
 blynk = BlynkLib.Blynk(BLYNK_AUTH)
 @blynk.on("V11")
@@ -118,6 +119,8 @@ def v11_write_handler(value):
  
     #sends to my HP printer and prints captured image.
     subprocess.run(["lp", "-d", "HP_ENVY_6000_series",jpg_filename ])
+
+
 
 # register handler for virtual pin V0 Love Heart [Lights Button]
 @blynk.on("V0")
@@ -156,46 +159,47 @@ def v0_write_handler(value):
         sense.set_pixel(2,2,255,20,147)
         sense.set_pixel(4,7,255,20,147)
         #blue background
-        sense.set_pixel(4,2,0, 0, 255)
-        sense.set_pixel(1,2,0, 0, 255)
-        sense.set_pixel(0,2,0, 0, 255)
-        sense.set_pixel(7,2,0, 0, 255)
-        sense.set_pixel(7,1,0, 0, 255)
-        sense.set_pixel(6,1,0, 0, 255)
-        sense.set_pixel(5,1,0, 0, 255)
-        sense.set_pixel(4,1,0, 0, 255)
-        sense.set_pixel(3,1,0, 0, 255)
-        sense.set_pixel(2,1,0, 0, 255)
-        sense.set_pixel(1,1,0, 0, 255)
-        sense.set_pixel(0,1,0, 0, 255)
-        sense.set_pixel(7,0,0, 0, 255)
-        sense.set_pixel(6,0,0, 0, 255)
-        sense.set_pixel(5,0,0, 0, 255)
-        sense.set_pixel(4,0,0, 0, 255)
-        sense.set_pixel(3,0,0, 0, 255)
-        sense.set_pixel(2,0,0, 0, 255)
-        sense.set_pixel(1,0,0, 0, 255)
-        sense.set_pixel(0,0,0, 0, 255)
-        sense.set_pixel(7,7,0, 0, 255)
-        sense.set_pixel(6,7,0, 0, 255)
-        sense.set_pixel(5,7,0, 0, 255)
-        sense.set_pixel(3,7,0, 0, 255)
-        sense.set_pixel(2,7,0, 0, 255)
-        sense.set_pixel(1,7,0, 0, 255)
-        sense.set_pixel(0,7,0, 0, 255)
-        sense.set_pixel(7,6,0, 0, 255)
-        sense.set_pixel(6,6,0, 0, 255)
-        sense.set_pixel(2,6,0, 0, 255)
-        sense.set_pixel(1,6,0, 0, 255)
-        sense.set_pixel(0,6,0, 0, 255)
-        sense.set_pixel(0,5,0, 0, 255)
-        sense.set_pixel(1,5,0, 0, 255)
-        sense.set_pixel(7,5,0, 0, 255)
-        sense.set_pixel(0,3,0, 0,255)
-        sense.set_pixel(0,4,0, 0,255)
+        sense.set_pixel(4,2,0,0,255)
+        sense.set_pixel(1,2,0,0,255)
+        sense.set_pixel(0,2,0,0,255)
+        sense.set_pixel(7,2,0,0,255)
+        sense.set_pixel(7,1,0,0,255)
+        sense.set_pixel(6,1,0,0,255)
+        sense.set_pixel(5,1,0,0,255)
+        sense.set_pixel(4,1,0,0,255)
+        sense.set_pixel(3,1,0,0,255)
+        sense.set_pixel(2,1,0,0,255)
+        sense.set_pixel(1,1,0,0,255)
+        sense.set_pixel(0,1,0,0,255)
+        sense.set_pixel(7,0,0,0,255)
+        sense.set_pixel(6,0,0,0,255)
+        sense.set_pixel(5,0,0,0,255)
+        sense.set_pixel(4,0,0,0,255)
+        sense.set_pixel(3,0,0,0,255)
+        sense.set_pixel(2,0,0,0,255)
+        sense.set_pixel(1,0,0,0,255)
+        sense.set_pixel(0,0,0,0,255)
+        sense.set_pixel(7,7,0,0,255)
+        sense.set_pixel(6,7,0,0,255)
+        sense.set_pixel(5,7,0,0,255)
+        sense.set_pixel(3,7,0,0,255)
+        sense.set_pixel(2,7,0,0,255)
+        sense.set_pixel(1,7,0,0,255)
+        sense.set_pixel(0,7,0,0,255)
+        sense.set_pixel(7,6,0,0,255)
+        sense.set_pixel(6,6,0,0,255)
+        sense.set_pixel(2,6,0,0,255)
+        sense.set_pixel(1,6,0,0,255)
+        sense.set_pixel(0,6,0,0,255)
+        sense.set_pixel(0,5,0,0,255)
+        sense.set_pixel(1,5,0,0,255)
+        sense.set_pixel(7,5,0,0,255)
+        sense.set_pixel(0,3,0,0,255)
+        sense.set_pixel(0,4,0,0,255)
      
     else:
         sense.clear()
+
 
 # register handler for virtual pin V6 [Photo Button]take photos and upload to firebase
 @blynk.on("V6")
@@ -219,7 +223,6 @@ def v6_write_handler(value):
     camera.close()   
 
     
-   
  # register handler for virtual pin V5 [Email Button] sends email with image attached with camera annotation.
 @blynk.on("V5")
 def v5_write_handler(value):
@@ -239,6 +242,7 @@ def v5_write_handler(value):
     currentTimes = now.strftime("%H:%M:%S")
     text = f'Hi we just snapped you,\n the attached image was taken today at {currentTimes}'
     send_mail('witmaster2021@gmail.com', 'sophiamcgee90@gmail.com', 'Snap You',text, "/home/pi/MarvelMirror/images/image1.jpeg") 
+
 
 # register handler for virtual pin V4 [Temp Button] 
 @blynk.on("V4")
@@ -274,9 +278,9 @@ def v2_write_handler(value):
          if temp >=20:
              sense.show_message("Love the Outfit" , scroll_speed=0.05, text_colour=[0, 0, 255])
          if humidity >=20:
-             sense.show_message("Your looking like a Babe", scroll_speed=0.05, text_colour=[0, 0, 255])
+             sense.show_message("Your looking like a Babe", scroll_speed=0.05, text_colour=[0, 255, 0])
          if pressure >=20:
-             sense.show_message("You are a 20 out of 10", scroll_speed=0.10, text_colour=[0, 0, 255])
+             sense.show_message("You are a 20 out of 10", scroll_speed=0.10, text_colour=[255, 0, 0])
          else:
             sense.show_message("Did you get dressed in the Dark", text_colour = [0, 0, 255])
             print(temp)
