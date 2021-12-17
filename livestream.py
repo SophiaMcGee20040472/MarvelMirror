@@ -16,7 +16,7 @@ PAGE="""\
     <h4> Marvel Mirror Livestream</h4>
 <img src="stream.mjpg" width="350" height="200" />
 </body>
-<h1><a href=https://marvelmirror.glitch.me><u> </p>
+<h1><a href=https://marvelmirror1.glitch.me><u> </p>
    <img class="ui centered image"
          src="https://www.roadtrafficsigns.com/img/lg/K/This-Way-Out-Sign-K-6085.gif">
     <p></u></a></h1>

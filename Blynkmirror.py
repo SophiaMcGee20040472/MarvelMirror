@@ -33,6 +33,7 @@ load_dotenv()
 sense = SenseHat()
 sense.clear()
 frame = 1
+blynk = BlynkLib.Blynk(BLYNK_AUTH)
 
 # Send an email with an attachment using SMTP
 def send_mail(eFrom, to, subject, text, attachment):
@@ -61,7 +62,6 @@ def send_mail(eFrom, to, subject, text, attachment):
 
 # initialize Blynk
 #Using Tweepy library I have obtained keys and tokens needed to gain access
-blynk = BlynkLib.Blynk(BLYNK_AUTH)
 @blynk.on("V3")
 def v3_write_handler(value):
     buttonValue=value[0]
@@ -98,9 +98,7 @@ def v3_write_handler(value):
              api.update_status(status=tweet, media_ids=[media.media_id])
 
 
-
 # This button is the photobooth button this sends a captured photo to a printer to be printed out over a wifi connection.
-blynk = BlynkLib.Blynk(BLYNK_AUTH)
 @blynk.on("V11")
 def v11_write_handler(value):
     buttonValue=value[0]

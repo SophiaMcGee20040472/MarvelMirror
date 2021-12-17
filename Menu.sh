@@ -16,7 +16,14 @@ do
             # entering option input into greeting
             echo -e "\e[1;35m You Chose $opt ---------> \e[0m" 
             echo
-            exec python3 ./Blynkmirror.py & exec python3 livestream.py
+            exec python3 ./Blynkmirror.py 
+            ;;
+        "livestream")
+            echo
+            # entering option input into greeting
+            echo -e "\e[1;35m You Chose $opt ---------> \e[0m" 
+            echo
+            exec python3 livestream.py
             ;;
         "Quit")
             echo "--------------------------------------------------------------------------------"
