@@ -41,7 +41,7 @@ https://iotdesignpro.com/projects/sending-smtp-email-using-raspberry-pi
 https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/ 
 https://www.digitalocean.com/community/tutorials/how-to-use-break-continue-and-pass-statements-when-working-with-loops-in-python-3 
 https://www.geeksforgeeks.org/python-send-sms-using-twilio/ 
-https://uk.mathworks.com/help/thingspeak/embed-y our-thingspeak-plots-on-web-pages.html  
+https://uk.mathworks.com/help/thingspeak/embed-your-thingspeak-plots-on-web-pages.html  
 https://www.w3schools.com/css/css_text.asp 
 https://www.geeksforgeeks.org/how-to-append-html-code-to-a-div-using-javascript/ 
 https://stackoverflow.com/questions/1184123/is-it-possible-to-add-dynamically-named-properties-to-javascript-object 
