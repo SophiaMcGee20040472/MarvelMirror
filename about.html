@@ -61,7 +61,53 @@
          src="https://static.wixstatic.com/media/6af23a_8ddedffc043e4b508d0f72f370c411e6~mv2.gif">
     
      <div class="footer">
-  <p></p>
+  
+       <h2>General Instructions for set up and use: </h2>
+       
+<p>
+  Firstly Download Vs code or any other coding application that allows remote access.
+When this is completed. We will need to locate the ip address of your raspberry pi, you can do this by using sudo nmap -sn <enteryourIPaddress> in a terminal. I chose to use the virtualbox terminal to do this. 
+Once the IP address is found you can ssh in Vs Code you will firstly have to install two ssh extensions. Then in the bottom left corner you will see a small box with symbols similar to >< if you click on this a small text entry box will appear top of the middle of the page. You will then need to write ssh pi@[raspberrypi_ip_address]
+It will then ask you to enter your Raspberrypi password. 
+</p>
+<p>
+This was the hard part. Hopefully this will be the easier part.
+Once you have completed these steps open the pi folder and click on terminal new. Once this is open I want you to enter cd MarvelMirror Press Enter and then ./Menu.sh and Press Enter.
+This will show you a bash script menu in your terminal you can choose 1 to run the blynk app or two to quit.
+<br>
+Bash Script (1) will run livestream and all the buttons on the Blynk app 
+<br>
+To Turn off Marvel Mirror safely go to file close remote Connection. 
+</p>
+<h2>
+  When Blynk is chosen you can open your app and choose from multiple buttons:
+  </h2>
+Button 1: Lights on/off a Love Heart has been created as display.
+<br>
+Button 2: Email, this will take a photo with raspPi Cam and email it to your email address using SMPT.
+<br>
+<br>
+Button 3: Temp Button, This will tell you the temperature just once unless you Press button again.
+<br>
+<br>
+Button 4 : Tweet , This will tweet camera images and whatever you want to write to twitter this has used the tweepy library.
+<br>
+<br>
+Button 5 : Camera, This button will take a photo and send it to the firebase database to be stored.
+<br>
+<br>
+Button 6 : Quote button, these quotes depending on what the current Temperature, Humidity and Pressure sensed by the SenseHat.
+<br>
+<br>
+Button 7 : This Button links to a Glitch App created. This
+App was written using some Javascript, html , and css. Imagery has been taken from firebase and displayed on my index page.
+Livestream is also an option on this glitch website.
+<br>
+<br>
+Button 8 : Not present in the diagram but button 8 detects motion and then sends a text message using the twilio library.
+<br>
+<br>
+Button 9: Is a photobooth button that takes a photo and sends it to my printer to be printed.     
   <br>
 </div>
     </div>
